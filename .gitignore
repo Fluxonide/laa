@@ -1,0 +1,50 @@
+# -----------------
+# C compiled files
+# -----------------
+
+# Windows executables
+*.exe
+
+# Linux/macOS executables (no extension, optional but recommended)
+*.out
+a.out
+
+# Object files
+*.o
+*.obj
+
+
+# -----------------
+# Java compiled files
+# -----------------
+
+# Compiled bytecode
+*.class
+
+# Packaged files
+*.jar
+*.war
+*.ear
+
+# JVM crash logs
+hs_err_pid*
+
+# Build directories
+bin/
+build/
+out/
+target/
+
+# IDE files (optional but recommended)
+*.iml
+.idea/
+.project
+.classpath
+.settings/
+.vscode/settings.json
+.vscode/launch.json
+tempCodeRunnerFile.c
+tempCodeRunnerFile.java
+java/29-01-2026/202516041.php
+.vscode/c_cpp_properties.json
+.vscode/tasks.json
