@@ -1,34 +1,38 @@
-class Addition {
+// P2: Write a program to demonstrate how static time and dynamic time polymorphism is achieved.
 
-    int add(int a, int b) {
-        return a + b;
+
+
+class Calculator {
+    double multiply(double a, double b) {
+        return a * b;
     }
 
-    int add(int a, int b, int c) {
-        return a + b + c;
-    }
-}
-
-class Animal {
-    void sound() {
-        System.out.println("Animal makes sound");
+    double multiply(double a, double b, double c) {
+        return a * b * c;
     }
 }
 
-class Dog extends Animal {
-    void sound() {
-        System.out.println("Dog barks");
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle starts");
+    }
+}
+
+class Car extends Vehicle {
+
+    void start() {
+        System.out.println("Car starts with key");
     }
 }
 
 public class Polymorphism {
     public static void main(String[] args) {
 
-        Addition obj = new Addition();
-        System.out.println("Sum of 2 numbers: " + obj.add(5, 10));
-        System.out.println("Sum of 3 numbers: " + obj.add(5, 10, 15));
+        Calculator calc = new Calculator();
+        System.out.println("Multiplication of two numbers: " + calc.multiply(4, 5));
+        System.out.println("Multiplication of three numbers: " + calc.multiply(2, 3, 4));
 
-        Animal a = new Dog();   
-        a.sound();            
-}
+        Vehicle v = new Car();   
+        v.start();               
+    }
 }
