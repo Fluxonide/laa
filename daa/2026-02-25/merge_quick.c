@@ -25,7 +25,7 @@ void merge(int arr[], int left, int mid, int right)
     while (j < rightSize)
         arr[k++] = rightArr[j++];
 }
-
+// merge sort
 void mergeSort(int arr[], int left, int right)
 {
     if (left < right)
@@ -58,6 +58,7 @@ int partition(int arr[], int low, int high)
     return i + 1;
 }
 
+// quick sort
 void quickSort(int arr[], int low, int high)
 {
     if (low < high)
