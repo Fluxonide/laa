@@ -1,3 +1,6 @@
+// P2. Write a program to demonstrate the use of some common method available in the String class.
+
+
 import java.util.Scanner;
 
 public class estring {

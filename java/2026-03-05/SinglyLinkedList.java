@@ -7,8 +7,6 @@
 // 3. Traverse the node in the linked list
  
 // 4. Display the maximum number in the list.
- 
-// P2. Write a program to demonstrate the use of some common method available in the String class.
 
 
 
