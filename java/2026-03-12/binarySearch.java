@@ -8,17 +8,17 @@ public class binarySearch {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Enter size of array: ");
+        System.out.print("enter size of the array: ");
         int n = input.nextInt();
 
         int arr[] = new int[n];
 
-        System.out.println("Enter " + n + " sorted numbers:");
+        System.out.println("enter " + n + " sorted numbers only:");
         for(int i = 0; i < n; i++) {
             arr[i] = input.nextInt();
         }
 
-        System.out.print("Enter number to search: ");
+        System.out.print("what to search?: ");
         int target = input.nextInt();
 
         int left = 0;
@@ -41,8 +41,8 @@ public class binarySearch {
         }
 
         if(pos != -1)
-            System.out.println("Element found at index: " + pos);
+            System.out.println("found at index: " + pos);
         else
-            System.out.println("Element not found");
+            System.out.println("not found");
     }
 }
