@@ -1,55 +1,21 @@
 #include <stdio.h>
 
-int compCount = 0;
-int swapCount = 0;
+int cmp_count = 0, swap_count = 0;
 
-// Swap function
 void swap(int *a, int *b) {
-    swapCount++;
     int temp = *a;
     *a = *b;
     *b = temp;
-}
-
-void minHeapify(int arr[], int n, int i) {
-    int smallest = i;
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
-
-    if (left < n) {
-        compCount++;
-        if (arr[left] < arr[smallest])
-            smallest = left;
-    }
-
-    if (right < n) {
-        compCount++;
-        if (arr[right] < arr[smallest])
-            smallest = right;
-    }
-
-    if (smallest != i) {
-        swap(&arr[i], &arr[smallest]);
-        minHeapify(arr, n, smallest);
-    }
+    swap_count++;
 }
 
 void maxHeapify(int arr[], int n, int i) {
     int largest = i;
-    int left = 2 * i + 1;
-    int right = 2 * i + 2;
+    int l = 2*i + 1;
+    int r = 2*i + 2;
 
-    if (left < n) {
-        compCount++;
-        if (arr[left] > arr[largest])
-            largest = left;
-    }
-
-    if (right < n) {
-        compCount++;
-        if (arr[right] > arr[largest])
-            largest = right;
-    }
+    if (l < n) { cmp_count++; if (arr[l] > arr[largest]) largest = l; }
+    if (r < n) { cmp_count++; if (arr[r] > arr[largest]) largest = r; }
 
     if (largest != i) {
         swap(&arr[i], &arr[largest]);
@@ -57,14 +23,28 @@ void maxHeapify(int arr[], int n, int i) {
     }
 }
 
-void buildMinHeap(int arr[], int n) {
-    for (int i = n/2 - 1; i >= 0; i--)
-        minHeapify(arr, n, i);
+void minHeapify(int arr[], int n, int i) {
+    int smallest = i;
+    int l = 2*i + 1;
+    int r = 2*i + 2;
+
+    if (l < n) { cmp_count++; if (arr[l] < arr[smallest]) smallest = l; }
+    if (r < n) { cmp_count++; if (arr[r] < arr[smallest]) smallest = r; }
+
+    if (smallest != i) {
+        swap(&arr[i], &arr[smallest]);
+        minHeapify(arr, n, smallest);
+    }
 }
 
 void buildMaxHeap(int arr[], int n) {
     for (int i = n/2 - 1; i >= 0; i--)
         maxHeapify(arr, n, i);
+}
+
+void buildMinHeap(int arr[], int n) {
+    for (int i = n/2 - 1; i >= 0; i--)
+        minHeapify(arr, n, i);
 }
 
 void printArray(int arr[], int n) {
@@ -75,34 +55,27 @@ void printArray(int arr[], int n) {
 
 int main() {
     int n;
-
     printf("Enter number of elements: ");
     scanf("%d", &n);
 
-    int arr[n], minHeap[n], maxHeap[n];
-
-    printf("Enter elements:\n");
+    int arr[n], arr2[n];
+    printf("Enter elements: ");
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
-        minHeap[i] = arr[i];
-        maxHeap[i] = arr[i];
+        arr2[i] = arr[i];
     }
 
-    compCount = swapCount = 0;
-    buildMinHeap(minHeap, n);
+    cmp_count = swap_count = 0;
+    buildMaxHeap(arr, n);
+    printf("Max Heap: ");
+    printArray(arr, n);
+    printf("Comparisons: %d, Swaps: %d\n", cmp_count, swap_count);
 
-    printf("\nMin Heap: ");
-    printArray(minHeap, n);
-    printf("Comparisons: %d\n", compCount);
-    printf("Swaps: %d\n", swapCount);
-
-    compCount = swapCount = 0;
-    buildMaxHeap(maxHeap, n);
-
-    printf("\nMax Heap: ");
-    printArray(maxHeap, n);
-    printf("Comparisons: %d\n", compCount);
-    printf("Swaps: %d\n", swapCount);
+    cmp_count = swap_count = 0;
+    buildMinHeap(arr2, n);
+    printf("Min Heap: ");
+    printArray(arr2, n);
+    printf("Comparisons: %d, Swaps: %d\n", cmp_count, swap_count);
 
     return 0;
 }
