@@ -7,7 +7,15 @@ ii. When user try to deposit or withdraw negative amount form their account.
 import java.util.Scanner;
 
 class MyException extends Exception {
-    MyException(String s) {super(s); }
+    String msg;
+
+    MyException(String s) {
+          msg = s;
+    }
+
+    public String getMessage() {
+        return msg;
+    }
 }
 
 class Bank {
@@ -29,13 +37,15 @@ class Bank {
         System.out.println("Deposited: " + a);
     }
 
-    double getBalance() {return bal; }
+    double getBalance() {
+        return bal;
+    }
 }
 
 public class ExceptionHandle {
     public static void main(String[] args) {
-        ExceptionHandle obj = new ExceptionHandle(); 
-        obj.run(); 
+        ExceptionHandle obj = new ExceptionHandle();
+        obj.run();
     }
 
     void run() {
