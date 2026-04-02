@@ -1,6 +1,6 @@
 /* 
 1. Write a program to demonstrate the use of try-catch-finally-throw for handling abnormal situation.
-*/
+hi*/
 
 class TryCatch {
 
