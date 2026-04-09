@@ -1,4 +1,3 @@
-
 /* 
 Write a Java program that stores a set of numbers in an array. For each number, calculate its factorial and write the result to a file using a BufferedOutputStream.
 After writing the data, read the contents of the file using a FileInputStream and display the results on the console.
@@ -9,6 +8,7 @@ If the array is [2, 3, 5], the file should contain:
 3 factorial is 6
 5 factorial is 120 
 */
+
 import java.io.*;
 
 class factorial {
