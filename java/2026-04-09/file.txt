@@ -1,0 +1,3 @@
+2 factorial is 2
+3 factorial is 6
+5 factorial is 120
